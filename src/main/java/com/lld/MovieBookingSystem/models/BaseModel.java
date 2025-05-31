@@ -1,4 +1,19 @@
 package com.lld.MovieBookingSystem.models;
 
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.Date;
+@Getter
+@Setter
+@MappedSuperclass
 public class BaseModel {
+    @Id         //By this annotation we are defining int id as pimary key
+    private int id;
+    private Date createdAt;
+    private Date updatedAt;
+
+    
 }

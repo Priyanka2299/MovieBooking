@@ -1,4 +1,7 @@
 package com.lld.MovieBookingSystem.models;
 
-public class BookingStatus {
+public enum BookingStatus {
+    PENDING,
+    COMPLETED,
+    CANCELLED
 }
