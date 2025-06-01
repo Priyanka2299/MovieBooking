@@ -23,5 +23,5 @@ public class Payment extends BaseModel{
     private PaymentGateway paymentGateway;
 }
 
-
+//Booking 1 : M Payment
 //@Entity Maps a class to a DB table

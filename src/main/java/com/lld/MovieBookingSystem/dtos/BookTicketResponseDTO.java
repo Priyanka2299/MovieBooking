@@ -11,7 +11,4 @@ public class BookTicketResponseDTO {
     private int amount;
     private ResponseStatus responseStatus;
 
-
-
-
 }
