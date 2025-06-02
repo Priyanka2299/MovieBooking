@@ -13,6 +13,7 @@ import java.util.List;
 public class Users extends BaseModel{
     private String name;
     private String email;
+    private String password;    //Next step is encryption with Bcrypt
     @OneToMany(mappedBy = "bookedBy")
     private List<Booking> bookings;
 
