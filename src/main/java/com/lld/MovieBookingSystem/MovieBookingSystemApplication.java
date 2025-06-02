@@ -11,6 +11,8 @@ import com.lld.MovieBookingSystem.models.Region;
 import com.lld.MovieBookingSystem.models.Screen;
 import com.lld.MovieBookingSystem.models.Theatre;
 import com.lld.MovieBookingSystem.repositories.RegionRepository;
+import com.lld.MovieBookingSystem.repositories.ScreenRepository;
+import com.lld.MovieBookingSystem.repositories.TheatreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -25,14 +27,20 @@ public abstract class MovieBookingSystemApplication implements CommandLineRunner
 	UserController userController;
 	BookingController bookingController;
 	RegionRepository regionRepository;
+	ScreenRepository screenRepository;
+	TheatreRepository theatreRepository;
 
 	@Autowired
  	MovieBookingSystemApplication(UserController userController,
 								  BookingController bookingController,
-								  RegionRepository regionRepository){
+								  RegionRepository regionRepository,
+								  ScreenRepository screenRepository,
+								  TheatreRepository theatreRepository){
 		this.userController = userController;
 		this.bookingController = bookingController;
 		this.regionRepository = regionRepository;
+		this.screenRepository = screenRepository;
+		this.theatreRepository = theatreRepository;
 	}
 
 	@Override
@@ -64,12 +72,13 @@ public abstract class MovieBookingSystemApplication implements CommandLineRunner
 		theatre.setRegion(region);
 		theatre.setTheatreName("PVR : Director's cut");
 		theatre.setTheatreAddress("Church Street, MG Road");
-		//theatrerepository
+		theatreRepository.save(theatre);
+
 		Screen screen = new Screen();
 		screen.setTheatre(theatre);
 		screen.setScreenName("Screen 1");
 		screen.setFeatures(List.of(Feature.TWO_D));
-		//screenrepository
+		screenRepository.save(screen);
 
 
 	}
